@@ -1,0 +1,736 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+.clear:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+html,
+body {
+    font-family: 'Lato', sans-serif;
+    height: 100%;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    !important
+}
+
+#map_canvas {
+    height: 100%;
+    width: 100%;
+    z-index: 900;
+}
+
+.btn.inactive {
+    opacity: 0.5;
+}
+
+#cd-zoom-in,
+#cd-zoom-out {
+    font-size: 16px;
+    width: 28px;
+    padding: 6px 0;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 10px;
+    background-color: black;
+}
+
+#cd-zoom-in:hover,
+#cd-zoom-out:hover {
+    background-color: grey;
+}
+
+@media only screen and (min-width: 768px) {
+    #cd-zoom-in,
+    #cd-zoom-out {
+        margin-left: 27px;
+    }
+}
+
+#cd-zoom-in {
+    margin-top: 10px;
+    margin-bottom: 1px;
+}
+
+@media only screen and (min-width: 768px) {
+    #cd-zoom-in {
+        margin-top: 40px;
+    }
+}
+
+#cd-zoom-out {
+    background-position: 50% -32px;
+}
+
+#geocoder {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 999;
+}
+
+#address {
+    float: right;
+    background-color: black;
+    color: white;
+    outline: none;
+    border: none;
+    height: 30px;
+    width: 150px;
+    vertical-align: text-bottom;
+    padding: 0 10px;
+}
+/**************** Modal ****************/
+
+#info-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 5px;
+    padding: 4px 9px;
+    font-size: 16px;
+    width: 28px;
+    padding: 6px 0;
+    text-align: center;
+    background-color: black;
+    color: white;
+    z-index: 999;
+    cursor: pointer;
+}
+
+#info-btn:hover {
+    background-color: grey;
+}
+/*
+#info-modal {
+    display: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    padding: none;
+    z-index: 6;
+}
+*/
+/*
+
+/**************** MAXINE's MAP SHIT ****************/
+/*
+#tint {
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    overflow: auto;
+    background-color: black;
+    opacity: 0.8;
+    z-index: 2;
+}
+*/
+
+.blur {
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
+}
+/**************** STANDARD MODAL ****************/
+
+.modal {
+    font-family: 'Lato';
+    color: white;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    z-index: 1000;
+}
+
+.modal h1 {
+    font-size: 3.5em;
+    text-align: center;
+    font-weight: 100;
+    letter-spacing: 10px;
+}
+
+.modal h2 {
+    font-weight: 100;
+    letter-spacing: 4px;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.modal p {
+    font-size: .8em;
+    letter-spacing: .9px;
+    line-height: 145%;
+}
+
+.modal p span {
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+/**************** ABOUT ****************/
+
+#info-modal {
+    display: none;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: none;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.about {
+    text-align: left;
+}
+
+#logos {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+#logos a {
+    color: white;
+}
+
+#logos a:hover {
+    color: grey;
+}
+/**************** WELCOME + COLOR ****************/
+
+#welcome-modal {
+    height: 100%;
+    width: 100%;
+    overflow: none;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.welcome {
+    text-align: center;
+    padding-left: 35%;
+    padding-right: 35%;
+}
+
+#color-modal {
+    display: none;
+    padding-left: 35%;
+    padding-right: 35%;
+}
+
+.button {
+    letter-spacing: 3px;
+    text-align: center;
+    margin-left: 38%;
+    margin-right: 38%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border: 2px solid;
+}
+
+.button:hover {
+    background-color: white;
+    color: black;
+    font-weight: 400;
+}
+
+#color {
+    width: 150px;
+    margin-left: 225px;
+    margin-right: 225px;
+    margin-bottom: 40px;
+}
+/**************** Color swatches ****************/
+/*
+#red-swatch {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: red;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#orange-swatch {
+    position: absolute;
+    top: 90px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: orange;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#yellow-swatch {
+    position: absolute;
+    top: 130px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: yellow;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#green-swatch {
+    position: absolute;
+    top: 170px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: green;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#blue-swatch {
+    position: absolute;
+    top: 210px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: blue;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#purple-swatch {
+    position: absolute;
+    top: 250px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: purple;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#black-swatch {
+    position: absolute;
+    top: 290px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: black;
+    z-index: 10;
+    cursor: pointer;
+}
+
+#white-swatch {
+    position: absolute;
+    top: 330px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: white;
+    z-index: 10;
+    cursor: pointer;
+}
+*/
+
+.short-line {
+    width: 600px;
+}
+
+.empty {
+    background: #000000;
+    width: 215px;
+    height: 215px;
+    border-radius: 50%;
+}
+
+#sideswatch {
+    width: 190px;
+    margin: auto;
+}
+
+.swatch_red {
+    background: #c90e3c;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 3px;
+}
+
+.swatch_orange {
+    background: #ec5b2f;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 3px;
+}
+
+.swatch_yellow {
+    background: #edd02b;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 3px;
+}
+
+.swatch_green {
+    background: #55ba38;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 3px;
+}
+
+.swatch_blue {
+    background: #1e9db1;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 3px;
+}
+
+.swatch_purple {
+    background: #522e68;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 3px;
+}
+
+.swatch_black {
+    background: #333333;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 0px;
+    display: inline-block;
+    margin: 3px;
+}
+
+.swatch_white {
+    background: #efefef;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 0px;
+    display: inline-block;
+    margin: 3px;
+}
+
+#red-swatch {
+    background: #c90e3c;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 3px;
+}
+
+#orange-swatch {
+    background: #ec5b2f;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 3px;
+}
+
+#yellow-swatch {
+    background: #edd02b;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 3px;
+}
+
+#green-swatch {
+    background: #55ba38;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 3px;
+}
+
+#blue-swatch {
+    background: #1e9db1;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 3px;
+}
+
+#purple-swatch {
+    background: #522e68;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 3px;
+}
+
+#black-swatch {
+    background: black;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 3px;
+}
+
+#white-swatch {
+    background: #efefef;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 3px;
+}
+
+.container {
+    height: 100%;
+}
+
+.container > header span {
+    display: block;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    padding: 0 0 0.6em 0.1em;
+}
+
+.container > header nav {
+    float: right;
+}
+
+.container > header nav a {
+    display: block;
+    float: left;
+    position: relative;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    color: transparent;
+    margin: 0 0.1em;
+    text-indent: -8000px;
+}
+
+.container > header nav a:after {
+    content: attr(data-info);
+    position: absolute;
+    width: 600%;
+    top: 120%;
+    text-align: right;
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.container > header nav a:hover:after {
+    opacity: 1;
+}
+
+.container > header nav a:hover {}
+
+.main > section {
+    max-width: 30px;
+    width: 5%;
+}
+
+.main > section button {
+    border: none;
+    padding: 1.5em;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    margin: 10px 0;
+    font-size: 0.8em;
+}
+/* General styles for all menus */
+
+.cbp-spmenu {
+    background: white;
+    position: fixed;
+    overflow: auto;
+}
+
+.cbp-spmenu a {
+    display: inline;
+    font-size: 1.1em;
+    font-weight: 300;
+}
+/* Orientation-dependent styles for the content of the menu */
+
+.cbp-spmenu-vertical {
+    width: 240px;
+    height: 100%;
+    top: 0;
+    background: #191919;
+}
+
+.cbp-spmenu-vertical a {
+    /*	padding: 1em;*/
+}
+/* Vertical menu that slides from the left or right */
+
+.cbp-spmenu-left {
+    left: -240px;
+}
+
+.cbp-spmenu-left.cbp-spmenu-open {
+    left: 0px;
+}
+
+.cbp-spmenu-right.cbp-spmenu-open {
+    right: 0px;
+}
+/* Push classes applied to the body */
+
+.cbp-spmenu-push {
+    overflow-x: hidden;
+    position: relative;
+    left: 0;
+}
+
+.cbp-spmenu-push-toright {
+    left: 240px;
+}
+/* Transitions */
+
+.cbp-spmenu,
+.cbp-spmenu-push {
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+/*
+html {
+    height: 100%;
+}
+*/
+
+#vis a {
+    font-size: 10px;
+    color: #414141;
+}
+
+#vis {
+    padding: 15px 0;
+}
+
+#swatches {
+    padding-top: 8px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    position: absolute;
+    left: -300px;
+    width: 345px;
+    z-index: -1;
+}
+/*
+#map_canvas {
+    height: 100%;
+    width: 100%;
+}
+*/
+
+.cbp-spmenu {
+    color: white;
+}
+
+nav {
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    !important
+}
+
+#swatch-icon {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    background: black;
+    color: white;
+    font-size: 30px;
+    padding-left: 13px;
+    padding-top: 6px;
+}
+
+#swatch-icon:hover + #swatches,
+#swatches:hover {
+    top: 1px;
+    left: 30px;
+    z-index: 999;
+}
+
+#showLeftPush {
+    height: 100%;
+    border: none;
+    width: 50px;
+    background: #191919;
+    color: white;
+    font-size: 30px;
+    margin-top: -50px;
+}
+
+.container {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    margin-left: 50px;
+}
+
+h1 {
+    font-size: 12px;
+    font-weight: 100;
+    letter-spacing: .2em;
+}
+/*
+p {
+    font-size: 9px;
+    font-weight: 100;
+    letter-spacing: .1em;
+    padding-bottom: 10px;
+}
+*/
+
+.about-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+}

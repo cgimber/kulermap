@@ -1,0 +1,254 @@
+<html>
+
+<head>
+    <!-- Access jQuery Library -->
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <!-- Google Maps API -->
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+    <!-- colormap javascript -->
+    <script src="js/script.js"></script>
+
+    <!-- GOOGLE FONTS -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,300' rel='stylesheet' type='text/css'>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- css -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body class="cbp-spmenu-push">
+
+    <!-- modal1 welcome -->
+
+    <div id="welcome-modal">
+        <div class="modal">
+            <hr class="short-line">
+            <br>
+            <h1>KULERMAPP</h1>
+            <p class="welcome">Kulermapp is an interactive map produced by MOOD. Using cached Twitter data over May 16, 2015, Kulermapp enables color analysis through its responsive data visualization. By studying how people in different parts of the world talk about color, MOOD hopes to provide insight into different cultures and communities.</p>
+            <br>
+            <div id="explore-btn" class="button">EXPLORE</div>
+            <br>
+            <br>
+            <hr class="short-line">
+        </div>
+    </div>
+
+
+    <!-- modal2 color -->
+    <!--
+    <div id="color-modal" class="modal">
+        <hr class="short-line">
+        <br>
+        <h1>KULERMAPP</h1>
+        <br>
+        <div id="color-btn" class="button">MAP MY COLOR</div>
+        <br>
+        <br>
+        <hr class="short-line">
+    </div>
+-->
+
+    <!-- map -->
+    <div class="container">
+        <div id="map_canvas" class="blur"></div>
+    </div>
+    <!--
+    <i id="cd-zoom-in" class="fa fa-plus"></i>
+    <i id="cd-zoom-out" class="fa fa-minus"></i>
+-->
+
+    <!-- geocoder -->
+    <div id="geocoder" class="input-group blur">
+        <input id="address" type="text" placeholder="Enter location">
+    </div>
+
+    <!-- info button -->
+    <div id="info-btn" class="blur">
+        <i class="fa fa-info"></i>
+    </div>
+
+    <!-- info modal -->
+    <div id="info-modal">
+        <div class="modal about-modal">
+            <hr class="short-line">
+            <br>
+            <h2>ABOUT</h2>
+            <p class="about">
+                <br>Our vision is a world connected through color, regardless of language or location.
+                <br>
+                <br><span>TEAM</span>
+                <br>Dora Parnanen – Project manager &amp; Data collector
+                <br>Christian Gimber – Developer
+                <br>Lauren Nipper – UX designer
+                <br>Maxine Tsang – UI designer
+                <br>
+                <br><span>TOOLS USED</span>
+                <br>HTML, CSS, Javscript, JQuery, Google API, Fusion Tables, Social Feed Manager, Tagul, Google Translate, Adobe Creative Suite
+                <br>
+                <br><span>SPECIAL THANKS TO</span> Yoh Kawano &amp; Albert Kochaphum
+            </p>
+            <br>
+            <div id="logos">
+                <a href="http://sandbox.idre.ucla.edu/dh150/groups/mood/"><i class="fa fa-wordpress"></i></a>
+                <!--            <i class="fa fa-github"></i>-->
+            </div>
+            <br>
+            <hr class="short-line">
+        </div>
+    </div>
+
+    <!--    <button onclick="colormap.toggleMarkers('red');"><div id="red-swatch"></div></button>-->
+
+    <div id="swatch-icon">&#10010;</div>
+
+    <!-- Color Swatches -->
+    <div id="swatches">
+        <a href="#">
+            <div id="red-swatch" class="btn" onclick="colormap.toggleMarkers('red');"></div>
+        </a>
+        <a href="#">
+            <div id="orange-swatch" class="btn" onclick="colormap.toggleMarkers('orange');"></div>
+        </a>
+        <a href="#">
+            <div id="yellow-swatch" class="btn" onclick="colormap.toggleMarkers('yellow');"></div>
+        </a>
+        <a href="#">
+            <div id="green-swatch" class="btn" onclick="colormap.toggleMarkers('green');"></div>
+        </a>
+        <a href="#">
+            <div id="blue-swatch" class="btn" onclick="colormap.toggleMarkers('blue');"></div>
+        </a>
+        <a href="#">
+            <div id="purple-swatch" class="btn" onclick="colormap.toggleMarkers('purple');"></div>
+        </a>
+        <a href="#">
+            <div id="black-swatch" class="btn" onclick="colormap.toggleMarkers('black');"></div>
+        </a>
+        <a href="#">
+            <div id="white-swatch" class="btn" onclick="colormap.toggleMarkers('white');"></div>
+        </a>
+    </div>
+
+    <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+
+        <h1>TRENDS</h1>
+
+        <div id="sideswatch">
+            <a href="#">
+                <div class="swatch_red"></div>
+            </a>
+            <a href="#">
+                <div class="swatch_orange"></div>
+            </a>
+            <a href="#">
+                <div class="swatch_yellow"></div>
+            </a>
+            <a href="#">
+                <div class="swatch_green"></div>
+            </a>
+            <a href="#">
+                <div class="swatch_blue"></div>
+            </a>
+            <a href="#">
+                <div class="swatch_purple"></div>
+            </a>
+            <a href="#">
+                <div class="swatch_black"></div>
+            </a>
+            <a href="#">
+                <div class="swatch_white"></div>
+            </a>
+        </div>
+
+        <p>Choose from the swatches above to color the world and see what people are talking about.</p>
+
+        <!-- Data Vis -->
+        <div id="vis">
+            <div class="empty">
+            </div>
+            <div class="red" style="width: 215px; height: 215px; margin:auto;">
+                <script src="js/wordmaps/redcloud.js">
+                </script>
+            </div>
+            <div class="orange" style="width: 215px; height: 215px; margin:auto;">
+                <script src="js/wordmaps/orangecloud.js">
+                </script>
+            </div>
+            <div class="yellow" style="width: 215px; height: 215px; margin:auto;">
+                <script src="js/wordmaps/yellowcloud.js">
+                </script>
+            </div>
+            <div class="green" style="width: 215px; height: 215px; margin:auto;">
+                <script src="js/wordmaps/greencloud.js">
+                </script>
+            </div>
+            <div class="blue" style="width: 215px; height: 215px; margin:auto;">
+                <script src="js/wordmaps/bluecloud.js">
+                </script>
+            </div>
+            <div class="purple" style="width: 215px; height: 215px; margin:auto;">
+                <script src="js/wordmaps/purplecloud.js">
+                </script>
+            </div>
+            <div class="black" style="width: 215px; height: 215px; margin:auto;">
+                <script src="js/wordmaps/blackcloud.js">
+                </script>
+            </div>
+            <div class="white" style="width: 215px; height: 215px; margin:auto;">
+                <script src="js/wordmaps/whitecloud.js">
+                </script>
+            </div>
+        </div>
+
+    </nav>
+
+    <button id="showLeftPush">&#10095;</button>
+
+    <div class="container">
+        <div id="map_canvas"></div>
+    </div>
+
+    <!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
+    <script src="js/classie.js"></script>
+    <script>
+        var menuLeft = document.getElementById('cbp-spmenu-s1'),
+            showLeftPush = document.getElementById('showLeftPush'),
+            swatches = document.getElementById('swatches'),
+            swatchicon = document.getElementById('swatch-icon'),
+            body = document.body;
+
+        showLeftPush.onclick = function () {
+            // this == showLeftPush
+            // classie.toggle( showLeftPush, 'active' );
+            classie.toggle(this, 'active');
+
+            // if this.hasClass('active')
+
+            // if active, make arrow point left
+            if ($(this).hasClass('active')) {
+                this.innerHTML = "&#10094;";
+                swatches.style.display = 'none';
+                swatchicon.style.color = 'black';
+            }
+            // if inactive, make arrow point right
+            else {
+                this.innerHTML = "&#10095;";
+                swatches.style.display = 'block';
+                swatchicon.style.color = 'white';
+            }
+
+            classie.toggle(body, 'cbp-spmenu-push-toright');
+            classie.toggle(menuLeft, 'cbp-spmenu-open');
+        };
+    </script>
+
+</body>
+
+</html>
