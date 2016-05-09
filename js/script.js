@@ -577,7 +577,7 @@ colormap.init = function () {
 
     //map configurations
     var myOptions = {
-        zoom: 2,
+        zoom: 3,
         minZoom: 2,
         center: latlng,
         styles: style,
@@ -619,9 +619,6 @@ colormap.init = function () {
         infowindow.close();
     });
 
-    //        for (i = 0; i < colorList.length; i++) {
-    //            colormap.getTweets(colorList[i]);
-    //        }
     colormap.getTweets('red');
     colormap.getTweets('orange');
     colormap.getTweets('yellow');
