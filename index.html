@@ -1,59 +1,26 @@
 <html>
 
 <head>
-    <!-- Access jQuery Library -->
-    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
-    <!-- Google Maps API -->
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-
-    <!-- colormap javascript -->
-    <script src="js/script.js"></script>
-
-    <!-- GOOGLE FONTS -->
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,300' rel='stylesheet' type='text/css'>
-
+    <meta charset="utf-8">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
-    <!-- css -->
+    <!-- colormap css -->
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <body class="cbp-spmenu-push">
 
-    <!-- modal1 welcome -->
-
     <div id="welcome-modal">
         <div class="modal">
             <hr class="short-line">
-            <br>
             <h1>KULERMAPP</h1>
-            <p class="welcome">Kulermapp is an interactive map produced by MOOD. Using cached Twitter data over May 16, 2015, Kulermapp enables color analysis through its responsive data visualization. By studying how people in different parts of the world talk about color, MOOD hopes to provide insight into different cultures and communities.</p>
-            <br>
-            <div id="explore-btn" class="button">EXPLORE</div>
-            <br>
-            <br>
+            <p class="welcome">Kulermapp is a map of 18,000 color coded tweets archived over a 24 hour time period. This data visualization explores the correlation between color, language, and geography. Our hope is that tools like Kulermapp will connect people worldwide in new and interesting ways.</p>
+            <div class="button-container">
+                <a id="explore-btn" class="button">EXPLORE</a>
+            </div>
             <hr class="short-line">
         </div>
     </div>
-
-
-    <!-- modal2 color -->
-    <!--
-    <div id="color-modal" class="modal">
-        <hr class="short-line">
-        <br>
-        <h1>KULERMAPP</h1>
-        <br>
-        <div id="color-btn" class="button">MAP MY COLOR</div>
-        <br>
-        <br>
-        <hr class="short-line">
-    </div>
--->
 
     <!-- map -->
     <div class="container">
@@ -78,28 +45,24 @@
     <div id="info-modal">
         <div class="modal about-modal">
             <hr class="short-line">
-            <br>
             <h2>ABOUT</h2>
             <p class="about">
-                <br>Our vision is a world connected through color, regardless of language or location.
-                <br>
-                <br><span>TEAM</span>
-                <br>Dora Parnanen – Project manager &amp; Data collector
+                <span>TEAM:</span>
+                <br>Dora Parnanen – Project manager & Data collector
                 <br>Christian Gimber – Developer
                 <br>Lauren Nipper – UX designer
                 <br>Maxine Tsang – UI designer
                 <br>
-                <br><span>TOOLS USED</span>
+                <br><span>TOOLS USED:</span>
                 <br>HTML, CSS, Javscript, JQuery, Google API, Fusion Tables, Social Feed Manager, Tagul, Google Translate, Adobe Creative Suite
                 <br>
-                <br><span>SPECIAL THANKS TO</span> Yoh Kawano &amp; Albert Kochaphum
+                <br><span>SPECIAL THANKS:</span>
+                <br>Yoh Kawano & Albert Kochaphum
             </p>
-            <br>
             <div id="logos">
-                <a href="http://sandbox.idre.ucla.edu/dh150/groups/mood/"><i class="fa fa-wordpress"></i></a>
-                <a href="https://github.com/cgimber/kulermap"><i class="fa fa-github"></i></a>
+                <a href="http://sandbox.idre.ucla.edu/dh150/groups/mood/" target="_blank"><i class="fa fa-wordpress"></i></a>
+                <a href="https://github.com/cgimber/kulermap" target="_blank"><i class="fa fa-github"></i></a>
             </div>
-            <br>
             <hr class="short-line">
         </div>
     </div>
@@ -214,6 +177,17 @@
     <div class="container">
         <div id="map_canvas"></div>
     </div>
+
+
+    <!-- Access jQuery Library -->
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <!-- Google Maps API -->
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+    <!-- colormap js -->
+    <script src="js/script.js"></script>
 
     <!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
     <script src="js/classie.js"></script>
